@@ -13,15 +13,16 @@ const getArrayOfUrls = () => {
 const fetchDevJobsFromBbc = async () => {
   try {
     const arrayOfUrls = getArrayOfUrls();
-    const arrayOfPromisesOfJobArray = arrayOfUrls.map(async (url, i) => {
+    const arrayOfPromisesOfJobArray = arrayOfUrls.map(async (url) => {
       const res = await axios.get(url)
       const html = res.data;
       const $ = cheerio.load(html);
       const scrapedContent = $('.jobs li').toArray();
       const jobs = scrapedContent.map(e => {
-        const link = $(e).find('a').attr('href').trim()
-        const title = $(e).find('.job-list-title').text().trim()
-        const location = $(e).find("*[itemprop = 'address']").text().trim()
+        const element = $(e)
+        const link = element.find('a').attr('href').trim()
+        const title = element.find('.job-list-title').text().trim()
+        const location = element.find("*[itemprop = 'address']").text().trim()
         return { link, title, location };
       })
       return jobs.filter(job => job.title.includes('Software Engineer') && job.location.includes('London'));   
