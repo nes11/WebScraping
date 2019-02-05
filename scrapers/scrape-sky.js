@@ -1,3 +1,5 @@
+//turned on 'disable JS' on the page and got zero results :( need browser script to scrape :(
+
 const axios = require('axios');
 const cheerio = require('cheerio');
 
@@ -25,15 +27,3 @@ const fetchDevJobsFromSky = async () => {
 module.exports = {
   fetchDevJobsFromSky,
 }
-
-
-
-
-
-
-
-
-
-
-
-

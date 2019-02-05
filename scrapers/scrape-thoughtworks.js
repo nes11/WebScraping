@@ -8,14 +8,6 @@ const fetchDevJobsFromTW = async () => {
     const res = await axios.get(url)
     const html = res.data;
     const $ = cheerio.load(html);
-    console.log($)
-
-
-
-
-
-
-
     const scrapedContent = $('tbody tr').toArray();
     const jobsArray = scrapedContent.map(e => {
       const link = $(e).find('a').attr('href').trim()
@@ -29,7 +21,6 @@ const fetchDevJobsFromTW = async () => {
   }
 }
 
-fetchDevJobsFromTW();
 
 module.exports = {
   fetchDevJobsFromTW,
