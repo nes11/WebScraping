@@ -23,7 +23,7 @@ const fetchDevJobsFromBbc = async () => {
         const link = element.find('a').attr('href').trim()
         const title = element.find('.job-list-title').text().trim()
         const location = element.find("*[itemprop = 'address']").text().trim()
-        return { link, title, location };
+        return { title, link, location };
       })
       return jobs.filter(job => job.title.includes('Software Engineer') && job.location.includes('London'));   
     })  

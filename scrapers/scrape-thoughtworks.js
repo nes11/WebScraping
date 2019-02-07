@@ -13,7 +13,7 @@ const fetchDevJobsFromTW = async () => {
       const link = $(e).find('a').attr('href').trim()
       const title = $(e).find('a').text().trim()
       const location = $(e).find('').text().trim()
-      return { link, title, location }
+      return { title, link, location }
     })
     return jobsArray.filter(job => job.title.includes('Developer') && (job.location === 'London, England' || job.location === 'Osterley, England'))
   } catch (err) {

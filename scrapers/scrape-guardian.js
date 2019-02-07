@@ -22,7 +22,7 @@ const fetchDevJobsFromGuardian = async () => {
         const link = $(e).find('td a').attr('href').trim()
         const title = $(e).find('td:first-child a').text().trim()
         const location = $(e).find('td:last-child a').text().trim()
-        return { link, title, location }
+        return { title, link, location }
       })
       return jobsArray.filter(job => job.title.includes('Developer'))
     })

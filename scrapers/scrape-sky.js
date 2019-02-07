@@ -16,7 +16,7 @@ const fetchDevJobsFromSky = async () => {
       const link = `https://jobs.sky.com${croppedlink}`;
       const title = $(e).find('.sixty').text().trim()
       const location = $(e).find('.forty').text().trim()
-      return { link, title, location }
+      return { title, link, location }
     })
     return jobsArray.filter(job => job.title.includes('Developer') && (job.location === 'London, England' || job.location === 'Osterley, England'))
   } catch (err) {

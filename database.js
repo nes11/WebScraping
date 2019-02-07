@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const _ = require('lodash');
 const localUrl = 'mongodb://localhost:27017';
 const prodUrl = 'mongodb://mongo:27017';
 
@@ -17,11 +18,12 @@ const getConnection = async () => {
 
 const saveJobs = async (developerJobs) => {
   try {
+    const jobsToSave = _.cloneDeep(developerJobs)
     const client = await getConnection();
     await client
       .db(dbName)
       .collection(jobCollectionName)
-      .insertMany(developerJobs);
+      .insertMany(jobsToSave);
     client.close();
   } catch(err) {
     console.log('error', err);

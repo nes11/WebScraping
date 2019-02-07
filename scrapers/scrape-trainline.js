@@ -13,7 +13,7 @@
         const link = $(e).find('a').attr('href').trim()
         const title = $(e).find('h5').text().trim()
         const location = $(e).find('.sort-by-location.posting-category.small-category-label').text().trim()
-        return { link, title, location }
+        return { title, link, location }
       })
       return jobsArray.filter(job => job.title.includes('Developer') || job.title.includes('Web'))
     } catch (err) {

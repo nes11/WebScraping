@@ -1,12 +1,12 @@
 const nodemailer = require("nodemailer");
 
-const main = async () => {
+const mailer = async (jobs) => {
   try {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: 'agnesgaroux47@gmail.com',
-        pass: ''
+        pass: 'london-trans.2017'
       }
     });
 
@@ -14,7 +14,7 @@ const main = async () => {
       from: 'agnesgaroux47@gmail.com', // sender address
       to: 'agnesgaroux47@gmail.com', // list of receivers
       subject: 'New jobs', // Subject line
-      html: '<p>Here are some new jobs!</p>'// plain text body
+      html: `<p>${jobs}</p>`// plain text body
     };
 
     transporter.sendMail(mailOptions, (err, info) => {
@@ -27,6 +27,10 @@ const main = async () => {
   } catch (err) {
     console.error(err)
   }
+}
+
+module.exports = {
+  mailer,
 }
 
 
