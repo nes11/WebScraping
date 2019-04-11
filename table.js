@@ -4,16 +4,7 @@ const createCells = (job, type) => Object.values(job).map(val => `<${type}>${val
 
 const createBody = (data) => data.map(job => `<tr>${createCells(job, 'td')}</tr>`).join('');
 
-const createTable = (data) => 
-    `
-      <table>
-        <thead></thead>
-        <tbody>${createBody(data)}</tbody>
-      </table>
-    `;
-
-getJobs().then(res => createTable(res)).then(console.log).catch(console.log)
-//getJobs().then(console.log).catch(console.log)
+const createTable = (data) => `<table><thead></thead><tbody>${createBody(data)}</tbody></table>`;
 
   module.exports = {
     createTable,

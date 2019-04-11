@@ -1,3 +1,5 @@
+// This mailer will not work unless you give non-secure apps access to the sender's inbox
+
 const nodemailer = require("nodemailer");
 
 const mailer = async (jobs) => {
@@ -5,14 +7,14 @@ const mailer = async (jobs) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'agnesgaroux47@gmail.com',
-        pass: 'london-trans.2017'
+        user: '', // email address goes here 
+        pass: '' // password goes there 
       }
     });
 
     const mailOptions = {
-      from: 'agnesgaroux47@gmail.com', // sender address
-      to: 'agnesgaroux47@gmail.com', // list of receivers
+      from: '', // sender address
+      to: '', // list of receivers
       subject: 'New jobs', // Subject line
       html: `<p>${jobs}</p>`// plain text body
     };
