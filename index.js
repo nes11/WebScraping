@@ -11,9 +11,8 @@ app.get('/', async (req, res) => {
   res.send(file);
 });
 
+app.use('/assets', express.static('assets'));
+
 app.listen(4000, () => {
   console.log('listening on port 4000');
 });
-
-
-
