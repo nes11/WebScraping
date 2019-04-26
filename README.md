@@ -11,6 +11,6 @@ npm install
 ```
 then run 
 ```javascript
-node index.js 
+npm run scrape
 ```
 By default, the app will print an html string to the console. 
